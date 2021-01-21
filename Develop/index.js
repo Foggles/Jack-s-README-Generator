@@ -63,8 +63,8 @@ inquirer
         console.log(response);
 
         const output = `
-#${projectTitle}
-##Table of Contents
+# ${response.projectTitle}
+## Table of Contents
 1. [Description](#description)
 2. [Installation](#installation)
 3. [Usage](#usage)
@@ -73,25 +73,30 @@ inquirer
 6. [Tests](#tests)
 7. [Questions](#questions)
 
-##Description
-${projectDescription}
+## Description
+${response.projectDescription}
 
-##Installation
-${projectInstallation}
+## Installation
+${response.projectInstallation}
 
-##Usage
-${projectUsage}
+## Usage
+${response.projectUsage}
 
-##License
-${projectLicense}
+## License
+${response.projectLicense}
 
-##Contribution
-${projectContribution}
+## Contribution
+${response.projectContribution}
 
-##Testing
-${projectTesting}
+## Testing
+${response.projectTesting}
 
-Questions
-${gitHubUsername + userEmail}`
+## Questions
+GitHub: ${response.gitHubUsername} 
+Developer's Email: ${response.userEmail}`;
+
+        fs.writeFile('README.md', output, (err, data) =>
+            err ? console.log(err) : console.log("SUCCESS")
+        )
 
     });
