@@ -1,5 +1,8 @@
 
-# asa
+# asas
+
+![License](https://img.shields.io/badge/License-Apache-blue)
+
 ## Table of Contents
 1. [Description](#description)
 2. [Installation](#installation)
@@ -13,13 +16,13 @@
 asas
 
 ## Installation
-asa
-
-## Usage
 asas
 
+## Usage
+asa
+
 ## License
-1
+This project is covered under the Apache license.
 
 ## Contribution
 asas
@@ -28,5 +31,5 @@ asas
 asas
 
 ## Questions
-GitHub:  
-Developer's Email: as
+##### GitHub: asas 
+##### Developer's Email: asas
