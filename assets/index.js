@@ -245,7 +245,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
             9. Accepting Warranty or Additional Liability. While redistributing the Work or Derivative Works thereof, You may choose to offer, and charge a fee for, acceptance of support, warranty, indemnity, or other liability obligations and/or rights consistent with this License. However, in accepting such obligations, You may act only on Your own behalf and on Your sole responsibility, not on behalf of any other Contributor, and only if You agree to indemnify, defend, and hold each Contributor harmless for any liability incurred by, or claims asserted against, such Contributor by reason of your accepting any such warranty or additional liability.
             
             END OF TERMS AND CONDITIONS`
-        } else if (licenseOutput === "GPLv3") {
+        } else if (response.projectLicense === "GPLv3") {
             licenseOutput = `GNU GENERAL PUBLIC LICENSE
             Version 3, 29 June 2007
             
@@ -431,6 +431,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
             If the disclaimer of warranty and limitation of liability provided above cannot be given local legal effect according to their terms, reviewing courts shall apply local law that most closely approximates an absolute waiver of all civil liability in connection with the Program, unless a warranty or assumption of liability accompanies a copy of the Program in return for a fee.
             
             END OF TERMS AND CONDITIONS`
+        } else {
+            licenseOutput = 'NO LICENSE SELECTED'
         }
 
         fs.writeFile('license.md', licenseOutput, (err, data) =>
