@@ -1,6 +1,7 @@
 // * DONE: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
+let licenseOutput = undefined;
 
 // * DONE: Create an array of questions for user input
 inquirer
@@ -45,7 +46,7 @@ inquirer
             type: 'list',
             message: 'What license will your project be under?',
             name: 'projectLicense',
-            choices: ['MIT', 'GPLv2', 'Apache', 'GLPv3'],
+            choices: ['MIT', 'GPLv2', 'Apache', 'GPLv3'],
         },
 
         {
@@ -95,17 +96,22 @@ ${response.projectContribution}
 ${response.projectTesting}
 
 ## Questions
-##### GitHub: ${response.gitHubUsername} 
-##### Developer's Email: ${response.userEmail}`;
+##### GitHub: https://github.com/${response.gitHubUsername} 
+##### Developer's Email: ${response.userEmail}
+
+
+##### Generated Using Jack's README Generator`;
 
 
         fs.writeFile('README.md', output, (err, data) =>
             err ? console.log(err) : console.log("SUCCESS")
         )
 
-        if (response.projectLicense === 'MIT') {
-            licenseOutput = `Copyright 2020 ${gitHubUsername}
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files ${projectTitle}, to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+        console.log(response);
+        if (response.projectLicense === "MIT") {
+            console.log("hey");
+            licenseOutput = `Copyright 2020 ${response.gitHubUsername}
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files ${response.projectTitle}, to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.`
         } else if (response.projectLicense === "GPLv2") {
